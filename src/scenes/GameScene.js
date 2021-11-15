@@ -1,8 +1,6 @@
 import Phaser from "phaser";
 let bg;
 
-let bg;
-
 class GameScene extends Phaser.Scene {
     constructor(test) {
         super({
@@ -21,7 +19,7 @@ class GameScene extends Phaser.Scene {
         
         //background
         bg = this.add.tileSprite(0,-4150,700,4900,'bg').setOrigin(0,0);
-
+        
         this.player = this.physics.add.image(225, 700, 'player');
         this.player.setGravityY(400);
         this.player.setScale(0.175);
