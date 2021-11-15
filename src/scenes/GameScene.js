@@ -1,5 +1,8 @@
 import Phaser from "phaser";
+
 let bg;
+let keyA;
+let keyD;
 
 class GameScene extends Phaser.Scene {
     constructor(test) {
