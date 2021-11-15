@@ -26,6 +26,8 @@ class GameScene extends Phaser.Scene {
         //background
         bg = this.add.tileSprite(0,0,700,4900,'bg').setOrigin(0,0);
         
+        //object
+
         this.player = this.physics.add.sprite(225, 700, 'player');
         this.player.setGravityY(650);
         this.player.setScale(0.07);
