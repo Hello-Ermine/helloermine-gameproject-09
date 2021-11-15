@@ -3,8 +3,8 @@ import Phaser from "phaser";
 let bg;
 let keyA;
 let keyD;
+let object1;    
 let player;
-
 
 class GameScene extends Phaser.Scene {
     constructor(test) {
@@ -14,7 +14,7 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('bg', 'src/image/bgmain.png');
+        this.load.image('bg', 'src/image/scene1.jpg');
         this.load.spritesheet('player', 'src/image/walk.png',
                 {frameWidth:1024, frameHeight:1714});
 
@@ -24,15 +24,22 @@ class GameScene extends Phaser.Scene {
     create() {
         
         //background
-        bg = this.add.tileSprite(0,0,700,4900,'bg').setOrigin(0,0);
+        bg = this.add.tileSprite(0,0,700,950,'bg').setOrigin(0,0);
         
         //object
+        object1 = this.physics.add.image(0,932, 'object1')
+        .setOrigin(0,0)
+        .setImmovable()
+        .setSize(1500,0)
+        .setOffset(0,14);
+        this.physics.add.collider(object1, player);
 
-        this.player = this.physics.add.sprite(225, 700, 'player');
-        this.player.setGravityY(650);
-        this.player.setScale(0.07);
-        this.player.setSize(1000,990);
-        this.player.setOffset(0,400);
+        //player
+        player = this.physics.add.sprite(225, 700, 'player');
+        player.setGravityY(650);
+        player.setScale(0.07);
+        player.setSize(1000,990);
+        player.setOffset(0,400);
 
         //animation player
         this.anims.create({
@@ -58,10 +65,10 @@ class GameScene extends Phaser.Scene {
 
 
 
-        this.player.setCollideWorldBounds(true)
+        player.setCollideWorldBounds(true)
 
-        this.input.on('pointerdown',this.startJump,this);
-        this.input.on('pointerup',this.endJump,this);
+        this.input.on('pointerdown',this.startJump, player);
+        this.input.on('pointerup',this.endJump, player);
 
         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
@@ -72,7 +79,7 @@ class GameScene extends Phaser.Scene {
     }
     endJump() {
         this.timer.remove();
-        this.player.setVelocityY(-this.power * 130);
+        player.setVelocityY(-this.power * 130);
         this.power = 0;
     }
 
@@ -92,17 +99,17 @@ class GameScene extends Phaser.Scene {
 
         //playerwalk + velocity + anims
        if(keyA.isDown){
-           this.player.setVelocityX(-300);
-           this.player.anims.play('playerWalkAni', true);
-           this.player.flipX=true;
+           player.setVelocityX(-300);
+           player.anims.play('playerWalkAni', true);
+           player.flipX=true;
            
        }else if(keyD.isDown){
-           this.player.setVelocityX(300);
-           this.player.anims.play('playerWalkAni', true);
-           this.player.flipX=false;
+           player.setVelocityX(300);
+           player.anims.play('playerWalkAni', true);
+           player.flipX=false;
        }else{
-           this.player.setVelocityX(0);
-           this.player.anims.play('playerIdleAni', true);
+           player.setVelocityX(0);
+           player.anims.play('playerIdleAni', true);
        }
     }
 
