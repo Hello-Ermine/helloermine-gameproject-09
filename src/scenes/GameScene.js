@@ -5,7 +5,7 @@ let keyA;
 let keyD;
 let keySPACE;
 let object1;
-let player;
+let playerJumpCharge;
 let playerJump;
 
 
@@ -23,7 +23,8 @@ class GameScene extends Phaser.Scene {
             { frameWidth: 1024, frameHeight: 1714 });
         this.load.spritesheet('playerJump', 'src/image/jumpnew.png',
             { frameWidth: 1024, frameHeight: 1049 });
-
+        this.load.spritesheet('playerJumping', 'src/image/Jumping.png',
+            { frameWidth: 1036, frameHeight: 1049 });
 
 
         this.load.image('object1', 'src/image/object/1.png');
@@ -44,11 +45,10 @@ class GameScene extends Phaser.Scene {
 
         //player
         this.player = this.physics.add.sprite(225, 700, 'player');
-        this.player.setGravityY(650);
+        this.player.setGravityY(800);
         this.player.setScale(0.07);
         this.player.setSize(1000, 990);
         this.player.setOffset(0, 400);
-
 
 
         //animation player
@@ -78,15 +78,15 @@ class GameScene extends Phaser.Scene {
                 start: 0,
                 end: 0
             }),
-            duration: 500,
+            duration: 3500,
             repeat: -1
         })
 
         this.anims.create({
-            key: 'playerJumpAni',
-            frames: this.anims.generateFrameNumbers('playerJump', {
-                start: 1,
-                end: 2
+            key: 'playerJumpingAni',
+            frames: this.anims.generateFrameNumbers('playerJumping', {
+                start: 0,
+                end: 1
             }),
             duration: 500,
             repeat: -1
@@ -138,11 +138,13 @@ class GameScene extends Phaser.Scene {
             this.player.setVelocityX(300);
             this.player.anims.play('playerWalkAni', true);
             this.player.flipX = false;
+
         } else if (keySPACE.isDown) {
             this.player.anims.play('playerChargeJumpAni', true);
             this.player.setVelocityX(0);
+
         } else if (Phaser.Input.Keyboard.JustUp(keySPACE)) {
-            this.player.anims.play('playerJumpAni', true);
+            this.player.anims.play('playerJumpingAni', true);
             
         } else{
             this.player.setVelocityX(0);
