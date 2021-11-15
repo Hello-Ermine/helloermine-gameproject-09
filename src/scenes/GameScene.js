@@ -1,6 +1,8 @@
 import Phaser from "phaser";
 let bg;
 
+let bg;
+
 class GameScene extends Phaser.Scene {
     constructor(test) {
         super({
@@ -19,7 +21,13 @@ class GameScene extends Phaser.Scene {
     }
 
     update(delta, time) {
-        
+        if (keyA.isDown) {
+            this.player.setVelocityX(-300);
+        } else if (keyD.isDown) {
+            this.player.setVelocityX(300);
+        } else {
+            this.player.setVelocityX(0);
+        }
     }
 }
 export default GameScene;
