@@ -1,8 +1,7 @@
 import Phaser from "phaser";
 
 let bg;
-let keyA;
-let keyD;
+
 
 class GameScene extends Phaser.Scene {
     constructor(test) {
@@ -46,8 +45,8 @@ class GameScene extends Phaser.Scene {
 
         this.input.on('pointerdown', this.startJump, this);
         this.input.on('pointerup', this.endJump, this);
-        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        // keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        // keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 
         // this.input.keyboard.on('keyup_RIGHT', this.rightjump, this);
 
