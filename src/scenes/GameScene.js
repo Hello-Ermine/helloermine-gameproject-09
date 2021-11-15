@@ -16,7 +16,7 @@ class GameScene extends Phaser.Scene {
     preload() {
         this.load.image('bg', 'src/image/bgmain.png');
         this.load.spritesheet('player', 'src/image/walk.png',
-                {frameWidth:368, frameHeight:368});
+                {frameWidth:1024, frameHeight:1714});
 
     }
 
@@ -27,8 +27,9 @@ class GameScene extends Phaser.Scene {
         
         this.player = this.physics.add.sprite(225, 700, 'player');
         this.player.setGravityY(400);
-        this.player.setScale(0.4);
-
+        this.player.setScale(0.175);
+        this.player.setSize(1000,990);
+        this.player.setOffset(0,400);
 
         //animation player
         this.anims.create({
@@ -36,6 +37,16 @@ class GameScene extends Phaser.Scene {
             frames: this.anims.generateFrameNumbers('player', {
                 start: 0,
                 end: 3
+            }),
+            duration: 500,    
+            repeat: -1
+        })
+
+        this.anims.create({
+            key: 'playerIdleAni',
+            frames: this.anims.generateFrameNumbers('player', {
+                start: 0,
+                end: 0
             }),
             duration: 500,    
             repeat: -1
@@ -77,12 +88,15 @@ class GameScene extends Phaser.Scene {
        if(keyA.isDown){
            this.player.setVelocityX(-300);
            this.player.anims.play('playerWalkAni', true);
+           this.player.flipX=true;
            
        }else if(keyD.isDown){
            this.player.setVelocityX(300);
            this.player.anims.play('playerWalkAni', true);
+           this.player.flipX=false;
        }else{
            this.player.setVelocityX(0);
+           this.player.anims.play('playerIdleAni', true);
        }
     }
 
