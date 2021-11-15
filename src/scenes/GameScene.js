@@ -10,9 +10,9 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('bg', 'src/image/bgmain.png')
+        this.load.image('bg', 'src/image/bgmain.png');
         this.load.spritesheet('player', 'src/image/walk.png',
-                {frameWidth:1024, frameHeight:1714})
+                {frameWidth:1024, frameHeight:1714});
 
     }
 
@@ -21,7 +21,7 @@ class GameScene extends Phaser.Scene {
         //background
         bg = this.add.tileSprite(0,0,700,4900,'bg').setOrigin(0,0);
 
-        this.player = this.physics.add.image(225, 700, 'player')
+        this.player = this.physics.add.image(225, 700, 'player');
         this.player.setGravityY(400);
         this.player.setScale(0.175);
 
