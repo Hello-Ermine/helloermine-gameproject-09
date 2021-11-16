@@ -61,6 +61,8 @@ class GameScene extends Phaser.Scene {
         this.load.image('narm', 'src/image/narm.png');
         this.load.image('narmv2', 'src/image/narmv2.png');
         this.load.image('narmv3', 'src/image/narmv3.png');
+
+        
     }
 
     create() {
@@ -229,6 +231,7 @@ class GameScene extends Phaser.Scene {
             this.scene.start('GameScene2')}
   );
 
+
         this.power = 0;
     }
     endJump() {
@@ -268,9 +271,11 @@ class GameScene extends Phaser.Scene {
         } else if (keySPACE.isDown) {
             this.player.anims.play('playerChargeJumpAni', true);
             this.player.setVelocityX(0);
+           
 
         } else if (Phaser.Input.Keyboard.JustUp(keySPACE)) {
             this.player.anims.play('playerJumpingAni', true);
+           
             
         } else{
             this.player.setVelocityX(0);
