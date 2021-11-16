@@ -17,6 +17,7 @@ let object48;
 let object49;
 let object50;
 let object51;
+let narm41;
 
 
 let playerJumpCharge;
@@ -57,6 +58,8 @@ class GameScene4 extends Phaser.Scene {
         this.load.image('object48', 'src/image/object/33.png')
         this.load.image('object49', 'src/image/object/35.png')
         this.load.image('object50', 'src/image/object/29.png')
+
+        this.load.image('narm41', 'src/image/narmv2.png');
 
 
 
@@ -168,6 +171,8 @@ class GameScene4 extends Phaser.Scene {
             .setOffset(228, 250)
             .setDepth(0.9);
 
+            
+
 
 
 
@@ -240,10 +245,7 @@ class GameScene4 extends Phaser.Scene {
         this.physics.add.collider(object46, this.player);
         this.physics.add.collider(object47, this.player);
         this.physics.add.collider(object48, this.player);
-        this.physics.add.collider(object49, this.player, () => {
-            this.scene.start('GameScene4');
-        }
-        );
+        this.physics.add.collider(object49, this.player);
         this.physics.add.collider(object50, this.player);
 
 
