@@ -223,7 +223,7 @@ class GameScene4 extends Phaser.Scene {
         starGroup = this.physics.add.group()
 
         starEvent = this.time.addEvent({
-                delay: 1750,
+                delay: 2500,
                 callback: function(){
 
                 star = this.physics.add.image(object49.x,object49.y+30,'star');
@@ -231,12 +231,12 @@ class GameScene4 extends Phaser.Scene {
                 star.setSize(130,125);
                 star.setOffset(10,10);
                 star.setDepth(0.9)
+                star.setImmovable();
                 
                 
 
                 starGroup.add(star);
                 starGroup.setVelocityX(-100);
-                
                 
 
                 },
@@ -270,12 +270,13 @@ class GameScene4 extends Phaser.Scene {
         this.physics.add.collider(object49, this.player);
         this.physics.add.collider(object50, this.player);
 
-        this.physics.add.collider(this.player, starGroup, ()=>{     
+        this.physics.add.overlap(starGroup, this.player, ()=>{     
             this.player.setX(0);
             this.player.setY(900);
+            
     }
     );
-
+        
 
 
 
