@@ -21,6 +21,11 @@ let object19;
 let object20;
 let object21;
 let object22;
+let narm3;
+let narm4;
+let narm5;
+let narm6;
+let narm7;
 let goNext;  
     
 let playerJumpCharge;
@@ -59,6 +64,7 @@ class GameScene2 extends Phaser.Scene {
             this.load.image('object20', 'src/image/object/20.png');
             this.load.image('object21', 'src/image/object/21.png');
             this.load.image('goNext', 'src/image/Continue.png');
+            this.load.image('narm1', 'src/image/narm.png');
         }
     
         create() {
@@ -156,6 +162,11 @@ class GameScene2 extends Phaser.Scene {
             .setSize(96, 15)
             .setOffset(144, 54);
 
+            //อุปสรรคหนาม
+            narm6 = this.add.image(245, 355, 'narm1')
+                .setScale(0.1);
+
+            //goUp next Scene
             goNext = this.add.image(645,35,'goNext')
             .setOrigin(0,0)
             .setScale(0.03)

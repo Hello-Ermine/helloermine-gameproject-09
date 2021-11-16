@@ -18,6 +18,8 @@ let object10;
 let object11;
 
 let next;
+let narm;
+let narm2;
 
 let playerJumpCharge;
 let playerJump;
@@ -53,6 +55,7 @@ class GameScene extends Phaser.Scene {
         this.load.image('object9', 'src/image/object/9.png');//เสร็จแล้ว
         this.load.image('object10', 'src/image/object/10.png');// object วาปไป scene2
         this.load.image('object11', 'src/image/object/11.png');//เสร็จแล้ว บล็อคตาย
+        this.load.image('narm', 'src/image/narm.png');
     }
 
     create() {
@@ -122,9 +125,16 @@ class GameScene extends Phaser.Scene {
             .setSize(189, 52)
             .setOffset(97, 30);
 
+        //icon goUp
         next = this.add.image(120,80,'next')
             .setOrigin(0,0)
             .setScale(0.03);
+
+        //อุปสรรค
+        narm = this.add.image(140, 340, 'narm')
+        .setScale(0.22);
+        narm2 = this.add.image(173, 69, 'narm')
+        .setScale(0.26);
 
         //player
         this.player = this.physics.add.sprite(225, 900, 'player');
