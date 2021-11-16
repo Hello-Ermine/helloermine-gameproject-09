@@ -226,15 +226,20 @@ class GameScene4 extends Phaser.Scene {
                 delay: 1750,
                 callback: function(){
 
-                star = this.physics.add.image(object49.x,object49.y+70,'star');
+                star = this.physics.add.image(object49.x,object49.y+30,'star');
                 star.setScale(0.3);
-                star.setSize(0.2);
+                star.setSize(130,125);
+                star.setOffset(10,10);
                 star.setDepth(0.9)
+                
+                
 
                 starGroup.add(star);
-
                 starGroup.setVelocityX(-100);
-            },
+                
+                
+
+                },
                 callbackScope: this,
                 loop: true,
 
@@ -265,26 +270,13 @@ class GameScene4 extends Phaser.Scene {
         this.physics.add.collider(object49, this.player);
         this.physics.add.collider(object50, this.player);
 
-         //star jiw jiw
-         starGroup = this.physics.add.group()
+        this.physics.add.collider(this.player, starGroup, ()=>{     
+            this.player.setX(0);
+            this.player.setY(900);
+    }
+    );
 
-         starEvent = this.time.addEvent({
-             delay: 500,
-             callback: function () {
- 
-                 star = this.physics.add.image(object49.x, object49.y, 'star');
-                 star.setScale(0.2);
-                 star.setSize(0.1);
-                 star.setDepth(10);
- 
-                 starGroup.add(star);
- 
-                 starGroup.setVelocityX(-100);
-             },
-             callbackScope: this,
-             loop: true,
- 
-         });
+
 
 
         this.power = 0;
@@ -332,8 +324,12 @@ class GameScene4 extends Phaser.Scene {
             this.player.setVelocityX(0);
             this.player.anims.play('playerIdleAni', true);
         }
-
+        for (let i = 0; i < starGroup.getChildren().length; i++) {
+            if (starGroup.getChildren()[i].x <= -20) {
+                    starGroup.getChildren()[i].destroy();
+        }
     }
+}
 
 
 }
