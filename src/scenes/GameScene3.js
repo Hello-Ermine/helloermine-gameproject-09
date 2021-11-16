@@ -116,11 +116,11 @@ class GameScene3 extends Phaser.Scene {
         .setSize(93, 58)
         .setOffset(145, 32);
 
-        object37 = this.physics.add.image(610.5,255,'object37')
+        object37 = this.physics.add.image(622.5,255,'object37')
         .setOrigin(0, 0)
         .setImmovable()
         .setSize(35, 70)
-        .setOffset(175, 49);
+        .setOffset(170, 49);
 
         object38 = this.physics.add.image(-105,100,'object38')
         .setOrigin(0, 0)

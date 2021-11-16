@@ -20,7 +20,7 @@ let object18;
 let object19;
 let object20;
 let object21;
-    
+let object22;  
     
 let playerJumpCharge;
 let playerJump;
@@ -148,6 +148,11 @@ class GameScene2 extends Phaser.Scene {
             .setImmovable()
             .setSize(96, 15)
             .setOffset(144, 54);
+            object22 = this.physics.add.image(600, 70, 'object21')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setSize(96, 15)
+            .setOffset(144, 54);
     
             //player
             this.player = this.physics.add.sprite(225, 900, 'player');
@@ -234,7 +239,10 @@ class GameScene2 extends Phaser.Scene {
             this.physics.add.collider(object20, this.player,()=>{     
                 this.scene.start('GameScene2')}
         );
-            this.physics.add.collider(object21, this.player);    
+            this.physics.add.collider(object21, this.player);
+            this.physics.add.collider(object22, this.player,()=>{     
+                this.scene.start('GameScene3')}
+        );       
         
             
             this.power = 0;
