@@ -249,12 +249,13 @@ class GameScene4 extends Phaser.Scene {
              callback: function () {
  
                  star = this.physics.add.image(object49.x, object49.y, 'star');
-                 star.setScale(0.5);
-                 star.setSize(0.2);
+                 star.setScale(0.2);
+                 star.setSize(0.1);
+                 star.setDepth(10);
  
                  starGroup.add(star);
  
-                 starGroup.setVelocityX();
+                 starGroup.setVelocityX(-100);
              },
              callbackScope: this,
              loop: true,
