@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-let bg;
+let bg4;
 
 
 class GameScene4 extends Phaser.Scene {
@@ -11,13 +11,13 @@ class GameScene4 extends Phaser.Scene {
 
 
     preload() {
-        this.load.image('bg','src/image/scene3.jpg')
+        this.load.image('bg4','src/image/scene3.jpg')
 
 
     }
 
     create() {
-        bg = this.add.tileSprite(0,0,1000,2100,'bg')
+        bg4 = this.add.tileSprite(0,0,1000,2100,'bg4')
         .setOrigin(0,0);
 
     }
