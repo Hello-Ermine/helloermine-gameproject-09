@@ -121,7 +121,7 @@ class GameScene extends Phaser.Scene {
             .setOffset(97, 30);
 
         //player
-        this.player = this.physics.add.sprite(225, 700, 'player');
+        this.player = this.physics.add.sprite(225, 900, 'player');
         this.player.setGravityY(800);
         this.player.setScale(0.07);
         this.player.setSize(680, 990);

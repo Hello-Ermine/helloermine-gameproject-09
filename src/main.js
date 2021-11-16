@@ -13,12 +13,12 @@ const config = {
     pixelArt: true,
     roundPixels: true,
     parent: 'content',
-    width: 690,
+    width: 698,
     height: 950,
     physics: {
         default: 'arcade',
         arcade: {
-            debug: false
+            debug: true
         }
     },
     scene: [

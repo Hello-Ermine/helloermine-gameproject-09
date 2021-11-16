@@ -8,9 +8,13 @@ let keySPACE;
 let object1;
 let object12;   
 let object13;
+let object13tri ;
 let object14;
+let object14tri;
 let object15;
+let object15tri;
 let object16;
+let object16tri;
 let object17;
 let object18;
 let object19;
@@ -43,7 +47,16 @@ class GameScene2 extends Phaser.Scene {
     
             //object
             this.load.image('object1', 'src/image/object/1.png');//เสร็จแล้ว
-            this.load.image('object12', 'src/image/object/12.png');
+            this.load.image('object12', 'src/image/object/12.png');//เสร็จแล้ว
+            this.load.image('object13', 'src/image/object/13.png');//เสร็จแล้ว
+            this.load.image('object14', 'src/image/object/14.png');
+            this.load.image('object15', 'src/image/object/15.png');
+            this.load.image('object16', 'src/image/object/16.png');
+            this.load.image('object17', 'src/image/object/17.png');
+            this.load.image('object18', 'src/image/object/18.png');
+            this.load.image('object19', 'src/image/object/19.png');
+            this.load.image('object20', 'src/image/object/20.png');
+            this.load.image('object21', 'src/image/object/21.png');
         }
     
         create() {
@@ -62,11 +75,82 @@ class GameScene2 extends Phaser.Scene {
             .setImmovable()
             .setSize(68, 52)
             .setOffset(174, 36);
-           
-           
+            object13 = this.physics.add.image(180, 710, 'object13')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setSize(100, 50)
+            .setOffset(97, 35);
+            object13tri = this.physics.add.image(180, 710, 'object13')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setVisible()
+            .setSize(61, 50)
+            .setOffset(197, 35);
+            object14 = this.physics.add.image(400, 600, 'object14')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setScale(1.5)
+            .setSize(28, 50)
+            .setOffset(185, 45);
+            object14tri = this.physics.add.image(400, 600, 'object14')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setVisible()
+            .setSize(5, 22)
+            .setOffset(267, 31);
+            object15 = this.physics.add.image(200, 450, 'object15')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setScale(0.5)
+            .setSize(125, 120)
+            .setOffset(235, 250);
+            object15tri = this.physics.add.image(200, 450, 'object15')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setScale(0.5)
+            .setVisible()
+            .setSize(30, 85)
+            .setOffset(235, 165);
+            object16 = this.physics.add.image(155, 290, 'object16')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setSize(112, 5)
+            .setOffset(136, 73);
+            object16tri = this.physics.add.image(155, 290, 'object16')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setVisible()
+            .setSize(112, 30)
+            .setOffset(136, 42);
+            object17 = this.physics.add.image(30, 450, 'object17')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setSize(112, 38)
+            .setOffset(136, 42);
+            object18 = this.physics.add.image(-50, 350, 'object18')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setSize(68, 24)
+            .setOffset(158, 48);
+            object19 = this.physics.add.image(180, 180, 'object19')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setSize(93, 32)
+            .setOffset(145, 44);
+            object20 = this.physics.add.image(350, 80, 'object20')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setScale(0.5)
+            .setSize(187, 48)
+            .setOffset(208, 275);
+            object21 = this.physics.add.image(480, 170, 'object21')
+            .setOrigin(0, 0)
+            .setImmovable()
+            .setSize(96, 15)
+            .setOffset(144, 54);
     
             //player
-            this.player = this.physics.add.sprite(225, 700, 'player');
+            this.player = this.physics.add.sprite(225, 900, 'player');
             this.player.setGravityY(800);
             this.player.setScale(0.07);
             this.player.setSize(680, 990);
@@ -125,9 +209,34 @@ class GameScene2 extends Phaser.Scene {
             keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
             keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     
+            //object collider with player
             this.physics.add.collider(object1, this.player);
             this.physics.add.collider(object12, this.player);
-    
+            this.physics.add.collider(object13, this.player,()=>{     
+                this.scene.start('GameScene2')}
+      );
+            this.physics.add.collider(object13tri, this.player);
+            this.physics.add.collider(object14, this.player,()=>{     
+                this.scene.start('GameScene2')}
+      );
+            this.physics.add.collider(object14tri, this.player);
+            this.physics.add.collider(object15, this.player);
+            this.physics.add.collider(object15tri, this.player,()=>{     
+                this.scene.start('GameScene2')}
+      );
+             this.physics.add.collider(object16, this.player,()=>{     
+                this.scene.start('GameScene2')}
+        );
+            this.physics.add.collider(object16tri, this.player);
+            this.physics.add.collider(object17, this.player);
+            this.physics.add.collider(object18, this.player);
+            this.physics.add.collider(object19, this.player);
+            this.physics.add.collider(object20, this.player,()=>{     
+                this.scene.start('GameScene2')}
+        );
+            this.physics.add.collider(object21, this.player);    
+        
+            
             this.power = 0;
         }
         endJump() {
@@ -150,8 +259,10 @@ class GameScene2 extends Phaser.Scene {
     
     
         update(delta, time) {
-            
+            //สลับด้านภาพ object
             object12.flipX = true;
+            object13.flipX = true;
+            object15.flipX = true;
 
             //playerwalk + velocity + anims
             if (keyA.isDown) {
