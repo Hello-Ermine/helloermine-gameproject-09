@@ -21,11 +21,13 @@ let object19;
 let object20;
 let object21;
 let object22;
+
+let narm1;
+let narm2;
 let narm3;
 let narm4;
 let narm5;
 let narm6;
-let narm7;
 let goNext;  
     
 let playerJumpCharge;
@@ -65,6 +67,8 @@ class GameScene2 extends Phaser.Scene {
             this.load.image('object21', 'src/image/object/21.png');
             this.load.image('goNext', 'src/image/Continue.png');
             this.load.image('narm1', 'src/image/narm.png');
+            this.load.image('narmv22', 'src/image/narmv2.png');
+            this.load.image('narmv23', 'src/image/narmv3.png');
         }
     
         create() {
@@ -117,8 +121,8 @@ class GameScene2 extends Phaser.Scene {
             .setImmovable()
             .setScale(0.5)
             .setVisible()
-            .setSize(30, 85)
-            .setOffset(235, 165);
+            .setSize(28, 85)
+            .setOffset(236, 165);
             object16 = this.physics.add.image(155, 290, 'object16')
             .setOrigin(0, 0)
             .setImmovable()
@@ -163,8 +167,24 @@ class GameScene2 extends Phaser.Scene {
             .setOffset(144, 54);
 
             //อุปสรรคหนาม
-            narm6 = this.add.image(245, 355, 'narm1')
+            narm1 = this.add.image(236, 698, 'narmv22')
+            .setScale(0.09);
+
+            narm2 = this.add.image(554, 615, 'narmv22')
+            .setScale(0.034);
+            
+            narm3 = this.add.image(254,478, 'narmv23')
+            .setScale(0.06);
+
+            narm4 = this.add.image(252, 455, 'narmv22')
+            .setScale(0.013);
+
+            narm5 = this.add.image(245, 355, 'narm1')
                 .setScale(0.1);
+           
+            narm6 = this.add.image(430, 129, 'narmv22')
+                .setScale(0.085);
+    
 
             //goUp next Scene
             goNext = this.add.image(645,35,'goNext')

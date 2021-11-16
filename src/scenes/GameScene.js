@@ -20,6 +20,9 @@ let object11;
 let next;
 let narm;
 let narm2;
+let narm3;
+let narm4;
+
 
 let playerJumpCharge;
 let playerJump;
@@ -56,6 +59,8 @@ class GameScene extends Phaser.Scene {
         this.load.image('object10', 'src/image/object/10.png');// object วาปไป scene2
         this.load.image('object11', 'src/image/object/11.png');//เสร็จแล้ว บล็อคตาย
         this.load.image('narm', 'src/image/narm.png');
+        this.load.image('narmv2', 'src/image/narmv2.png');
+        this.load.image('narmv3', 'src/image/narmv3.png');
     }
 
     create() {
@@ -132,8 +137,14 @@ class GameScene extends Phaser.Scene {
 
         //อุปสรรค
         narm = this.add.image(140, 340, 'narm')
-        .setScale(0.22);
-        narm2 = this.add.image(173, 69, 'narm')
+        .setScale(0.22)
+        .setDepth(8);
+        narm2 = this.add.image(162, 160, 'narmv2')
+        .setScale(0.217)
+        .setDepth(7);
+        narm3 = this.add.image(268, 250, 'narmv3')
+        .setScale(0.09);
+        narm4 = this.add.image(173, 69, 'narm')
         .setScale(0.26);
 
         //player
@@ -240,6 +251,8 @@ class GameScene extends Phaser.Scene {
 
 
     update(delta, time) {
+
+    
 
         //playerwalk + velocity + anims
         if (keyA.isDown) {
