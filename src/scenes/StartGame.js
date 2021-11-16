@@ -1,5 +1,4 @@
 import Phaser from "phaser";
-import { BuildGameObject } from "phaser/src/gameobjects";
 
 let playButton;
 let background;
