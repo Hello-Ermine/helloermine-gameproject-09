@@ -26,6 +26,8 @@ let starEvent;
 let playerJumpCharge;
 let playerJump;
 
+let awmine;
+
 
 
 class GameScene4 extends Phaser.Scene {
@@ -47,6 +49,9 @@ class GameScene4 extends Phaser.Scene {
             { frameWidth: 1024, frameHeight: 1049 });
         this.load.spritesheet('playerJumping', 'src/image/Jumping.png',
             { frameWidth: 1036, frameHeight: 1049 });
+        this.load.spritesheet('awmine', 'src/image/AwMine/Awmine.png',
+            { frameWidth: 1000, frameHeight: 1000 });
+
 
         //object
 
@@ -83,6 +88,15 @@ class GameScene4 extends Phaser.Scene {
         this.player.setSize(680, 985);
         this.player.setOffset(170, 400);
         this.player.setDepth(1);
+
+        //awmine
+        awmine = this.physics.add.sprite(675, 255, 'awmine')
+        awmine.setDepth(1);
+        awmine.setScale(0.15);
+        awmine.setSize(340, 520);
+        awmine.setOffset(320, 150);
+
+
 
 
 
@@ -175,7 +189,19 @@ class GameScene4 extends Phaser.Scene {
             .setOffset(228, 250)
             .setDepth(0.9);
 
-       
+        //awmine ani
+        this.anims.create({
+            key: 'awmineAni',
+            frames: this.anims.generateFrameNumbers('awmine', {
+                start: 0,
+                end: 4
+
+            }),
+            duration: 500,
+            repeat: -1
+
+
+        })
 
 
         //animation player
@@ -223,25 +249,25 @@ class GameScene4 extends Phaser.Scene {
         starGroup = this.physics.add.group()
 
         starEvent = this.time.addEvent({
-                delay: 2500,
-                callback: function(){
+            delay: 2500,
+            callback: function () {
 
-                star = this.physics.add.image(object49.x,object49.y+30,'star');
+                star = this.physics.add.image(object49.x, object49.y + 30, 'star');
                 star.setScale(0.3);
-                star.setSize(130,125);
-                star.setOffset(10,10);
+                star.setSize(130, 125);
+                star.setOffset(10, 10);
                 star.setDepth(0.9)
                 star.setImmovable();
-                
-                
+
+
 
                 starGroup.add(star);
                 starGroup.setVelocityX(-100);
-                
 
-                },
-                callbackScope: this,
-                loop: true,
+
+            },
+            callbackScope: this,
+            loop: true,
 
         });
 
@@ -270,13 +296,20 @@ class GameScene4 extends Phaser.Scene {
         this.physics.add.collider(object49, this.player);
         this.physics.add.collider(object50, this.player);
 
-        this.physics.add.overlap(starGroup, this.player, ()=>{     
+        this.physics.add.overlap(starGroup, this.player, () => {
             this.player.setX(0);
             this.player.setY(900);
-            
-    }
-    );
-        
+
+        }
+        );
+
+        this.physics.add.overlap(awmine, this.player, () => {
+           // this.scene.start('')
+
+        }
+        );
+
+
 
 
 
@@ -327,10 +360,12 @@ class GameScene4 extends Phaser.Scene {
         }
         for (let i = 0; i < starGroup.getChildren().length; i++) {
             if (starGroup.getChildren()[i].x <= -20) {
-                    starGroup.getChildren()[i].destroy();
+                starGroup.getChildren()[i].destroy();
+            }
         }
+        //awmineAni play
+        awmine.anims.play('awmineAni', true);
     }
-}
 
 
 }
