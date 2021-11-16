@@ -175,15 +175,7 @@ class GameScene4 extends Phaser.Scene {
             .setOffset(228, 250)
             .setDepth(0.9);
 
-            
-
-
-
-
-
-
-
-
+       
 
 
         //animation player
@@ -226,29 +218,6 @@ class GameScene4 extends Phaser.Scene {
             duration: 500,
             repeat: -1
         })
-
-        //star jiw jiw
-        starGroup = this.physics.add.group()
-
-        starEvent = this.time.addEvent({
-                delay: 500,
-                callback: function(){
-
-                star = this.physics.add.image(object49.x,object49.y,'star');
-                star.setScale(0.5);
-                star.setSize(0.2);
-
-                starGroup.add(star);
-
-                starGroup.setVelocityX();
-            },
-                callbackScope: this,
-                loop: true,
-
-        });
-
-
-
         this.player.setCollideWorldBounds(true)
 
         keySPACE = this.input.keyboard.on('keydown_SPACE', this.startJump, this);
@@ -272,10 +241,31 @@ class GameScene4 extends Phaser.Scene {
         this.physics.add.collider(object49, this.player);
         this.physics.add.collider(object50, this.player);
 
+         //star jiw jiw
+         starGroup = this.physics.add.group()
+
+         starEvent = this.time.addEvent({
+             delay: 500,
+             callback: function () {
+ 
+                 star = this.physics.add.image(object49.x, object49.y, 'star');
+                 star.setScale(0.5);
+                 star.setSize(0.2);
+ 
+                 starGroup.add(star);
+ 
+                 starGroup.setVelocityX();
+             },
+             callbackScope: this,
+             loop: true,
+ 
+         });
+
 
         this.power = 0;
 
     }
+
 
     endJump() {
         this.timer.remove();
