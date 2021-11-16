@@ -17,6 +17,11 @@ let object39;
 let object40;
 let object41;
 let object42;
+let narm31;
+let narm32;
+let narm33;
+
+
 
 let goUp;
 
@@ -63,6 +68,11 @@ class GameScene3 extends Phaser.Scene {
             this.load.image('object41', 'src/image/object/40.png');
             this.load.image('object42', 'src/image/object/28.png');
             this.load.image('goUp', 'src/image/Continue.png');
+
+            this.load.image('narm31', 'src/image/narm.png');
+            this.load.image('narm32', 'src/image/narm.png');
+            this.load.image('narm33', 'src/image/narmv2.png');
+            
     
 
 
@@ -149,7 +159,7 @@ class GameScene3 extends Phaser.Scene {
         .setSize(35, 24)
         .setOffset(175, 49);
 
-        object42 = this.physics.add.image(600,25,'object42')
+        object42 = this.physics.add.image(600,20,'object42')
         .setScale(0.5)
         .setOrigin(0, 0)
         .setImmovable()
@@ -159,7 +169,17 @@ class GameScene3 extends Phaser.Scene {
 
         goUp = this.add.image(670,65,'goUp')
         .setOrigin(0,0)
-        .setScale(0.02)
+        .setScale(0.02);
+
+        narm31 = this.add.image(645,60,'narm31')
+        .setScale(0.035);
+
+        narm32 = this.add.image(370,445,'narm32')
+        .setScale(0.035);
+
+        narm33 = this.add.image(370,405,'narm33')
+        .setScale(0.035);
+
 
 
         
