@@ -193,13 +193,14 @@ class GameScene extends Phaser.Scene {
         this.physics.add.collider(object8, this.player);
         this.physics.add.collider(object9, this.player);
         this.physics.add.collider(object9, this.player);
-        this.physics.add.collider(object10, this.player,//()=>{     
-            //          this.scene.start('GameScene2')}
-        );
+        
         this.physics.add.collider(object11, this.player,  ()=>{     
                   this.scene.start('GameScene');
         }
         );
+        this.physics.add.collider(object10, this.player,()=>{     
+            this.scene.start('GameScene2')}
+  );
 
         this.power = 0;
     }
