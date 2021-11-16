@@ -1,6 +1,9 @@
 import 'phaser';
 import Phaser from 'phaser';
 import GameScene from './scenes/GameScene';
+import Scene3 from './scenes/Scene3';
+import Scene4 from './scenes/Scene4';
+import Scene2 from './scenes/Scene2';
 
 
 const config = {
@@ -9,7 +12,7 @@ const config = {
     pixelArt: true,
     roundPixels: true,
     parent: 'content',
-    width: 700,
+    width: 690,
     height: 950,
     physics: {
         default: 'arcade',
@@ -18,7 +21,11 @@ const config = {
         }
     },
     scene: [
-        GameScene
+        GameScene,
+        Scene2
+        
+        // Scene3,
+        // Scene4
     ],
     
     
