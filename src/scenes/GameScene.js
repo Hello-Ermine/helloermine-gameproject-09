@@ -17,6 +17,7 @@ let object9;
 let object10;
 let object11;
 
+let next;
 
 let playerJumpCharge;
 let playerJump;
@@ -39,6 +40,7 @@ class GameScene extends Phaser.Scene {
         this.load.spritesheet('playerJumping', 'src/image/Jumping.png',
             { frameWidth: 1036, frameHeight: 1049 });
 
+        this.load.image('next', 'src/image/Continue.png');
 
         this.load.image('object1', 'src/image/object/1.png');//เสร็จแล้ว
         this.load.image('object2', 'src/image/object/2.png');//เสร็จแล้ว
@@ -119,6 +121,10 @@ class GameScene extends Phaser.Scene {
             .setScale(1.5)
             .setSize(189, 52)
             .setOffset(97, 30);
+
+        next = this.add.image(120,80,'next')
+            .setOrigin(0,0)
+            .setScale(0.03);
 
         //player
         this.player = this.physics.add.sprite(225, 900, 'player');

@@ -18,7 +18,7 @@ let object40;
 let object41;
 let object42;
 
-
+let goUp;
 
 
 
@@ -51,17 +51,18 @@ class GameScene3 extends Phaser.Scene {
 
             this.load.image('object1', 'src/image/object/1.png');//เสร็จแล้ว
             this.load.image('object31', 'src/image/object/26.png')//เสร็จแล้ว
-            this.load.image('object32', 'src/image/object/29.png')
-            this.load.image('object33', 'src/image/object/30.png')
-            this.load.image('object34', 'src/image/object/36.png')
-            this.load.image('object35', 'src/image/object/40.png')
-            this.load.image('object36', 'src/image/object/9.png')
-            this.load.image('object37', 'src/image/object/40.png')
-            this.load.image('object38', 'src/image/object/26.png')
-            this.load.image('object39', 'src/image/object/5.png')
-            this.load.image('object40', 'src/image/object/28.png')
-            this.load.image('object41', 'src/image/object/40.png')
-            this.load.image('object42', 'src/image/object/28.png')
+            this.load.image('object32', 'src/image/object/29.png');
+            this.load.image('object33', 'src/image/object/30.png');
+            this.load.image('object34', 'src/image/object/36.png');
+            this.load.image('object35', 'src/image/object/40.png');
+            this.load.image('object36', 'src/image/object/9.png');
+            this.load.image('object37', 'src/image/object/40.png');
+            this.load.image('object38', 'src/image/object/26.png');
+            this.load.image('object39', 'src/image/object/5.png');
+            this.load.image('object40', 'src/image/object/28.png');
+            this.load.image('object41', 'src/image/object/40.png');
+            this.load.image('object42', 'src/image/object/28.png');
+            this.load.image('goUp', 'src/image/Continue.png');
     
 
 
@@ -156,7 +157,9 @@ class GameScene3 extends Phaser.Scene {
         .setOffset(156, 36);
 
 
-        
+        goUp = this.add.image(670,65,'goUp')
+        .setOrigin(0,0)
+        .setScale(0.02)
 
 
         

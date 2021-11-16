@@ -20,7 +20,8 @@ let object18;
 let object19;
 let object20;
 let object21;
-let object22;  
+let object22;
+let goNext;  
     
 let playerJumpCharge;
 let playerJump;
@@ -57,6 +58,7 @@ class GameScene2 extends Phaser.Scene {
             this.load.image('object19', 'src/image/object/19.png');
             this.load.image('object20', 'src/image/object/20.png');
             this.load.image('object21', 'src/image/object/21.png');
+            this.load.image('goNext', 'src/image/Continue.png');
         }
     
         create() {
@@ -153,6 +155,10 @@ class GameScene2 extends Phaser.Scene {
             .setImmovable()
             .setSize(96, 15)
             .setOffset(144, 54);
+
+            goNext = this.add.image(645,35,'goNext')
+            .setOrigin(0,0)
+            .setScale(0.03)
     
             //player
             this.player = this.physics.add.sprite(225, 900, 'player');
