@@ -23,10 +23,10 @@ const config = {
        }
     },
     scene: [
-        // StartGame,
-        // GameScene,
-        // GameScene2,
-        // GameScene3,
+        StartGame,
+        GameScene,
+        GameScene2,
+        GameScene3,
         GameScene4
         
        
