@@ -218,6 +218,30 @@ class GameScene4 extends Phaser.Scene {
             duration: 500,
             repeat: -1
         })
+
+        //star jiw jiw
+        starGroup = this.physics.add.group()
+
+        starEvent = this.time.addEvent({
+                delay: 1750,
+                callback: function(){
+
+                star = this.physics.add.image(object49.x,object49.y+70,'star');
+                star.setScale(0.3);
+                star.setSize(0.2);
+                star.setDepth(0.9)
+
+                starGroup.add(star);
+
+                starGroup.setVelocityX(-100);
+            },
+                callbackScope: this,
+                loop: true,
+
+        });
+
+
+
         this.player.setCollideWorldBounds(true)
 
         keySPACE = this.input.keyboard.on('keydown_SPACE', this.startJump, this);
