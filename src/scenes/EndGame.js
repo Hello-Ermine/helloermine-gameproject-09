@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 
-
+let background
      
 class StartGame extends Phaser.Scene {
         constructor(test) {
@@ -10,12 +10,15 @@ class StartGame extends Phaser.Scene {
         }
     
         preload() {
-           
+           this.load.image('endGame', 'src/image/endGame.jpg');
+
     
     }
         create() {
-         
-        
+            background = this.add.image(-70, 30, 'endGame')
+            .setScale(0.66)
+            .setOrigin(0,0);
+            
     
     }
         update(delta, time) {
