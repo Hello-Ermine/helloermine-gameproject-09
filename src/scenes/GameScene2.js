@@ -50,8 +50,7 @@ class GameScene2 extends Phaser.Scene {
                 { frameWidth: 1024, frameHeight: 1714 });
             this.load.spritesheet('playerJump', 'src/image/jumpnew.png',
                 { frameWidth: 1024, frameHeight: 1049 });
-            this.load.spritesheet('playerJumping', 'src/image/Jumping.png',
-                { frameWidth: 1036, frameHeight: 1049 });
+
     
             //object
             this.load.image('object1', 'src/image/object/1.png');//เสร็จแล้ว
@@ -245,26 +244,36 @@ class GameScene2 extends Phaser.Scene {
             this.physics.add.collider(object1, this.player);
             this.physics.add.collider(object12, this.player);
             this.physics.add.collider(object13, this.player,()=>{     
-                this.scene.start('GameScene2')}
+                this.player.setX(600);
+                this.player.setY(900);
+        }
       );
             this.physics.add.collider(object13tri, this.player);
             this.physics.add.collider(object14, this.player,()=>{     
-                this.scene.start('GameScene2')}
+                this.player.setX(600);
+                this.player.setY(900);
+        }
       );
             this.physics.add.collider(object14tri, this.player);
             this.physics.add.collider(object15, this.player);
             this.physics.add.collider(object15tri, this.player,()=>{     
-                this.scene.start('GameScene2')}
+                this.player.setX(600);
+                this.player.setY(900);
+        }
       );
              this.physics.add.collider(object16, this.player,()=>{     
-                this.scene.start('GameScene2')}
+                this.player.setX(600);
+                this.player.setY(900);
+        }
         );
             this.physics.add.collider(object16tri, this.player);
             this.physics.add.collider(object17, this.player);
             this.physics.add.collider(object18, this.player);
             this.physics.add.collider(object19, this.player);
             this.physics.add.collider(object20, this.player,()=>{     
-                this.scene.start('GameScene2')}
+                this.player.setX(600);
+                this.player.setY(900);
+        }
         );
             this.physics.add.collider(object21, this.player);
             this.physics.add.collider(object22, this.player,()=>{     

@@ -47,8 +47,7 @@ class GameScene4 extends Phaser.Scene {
             { frameWidth: 1024, frameHeight: 1714 });
         this.load.spritesheet('playerJump', 'src/image/jumpnew.png',
             { frameWidth: 1024, frameHeight: 1049 });
-        this.load.spritesheet('playerJumping', 'src/image/Jumping.png',
-            { frameWidth: 1036, frameHeight: 1049 });
+
         this.load.spritesheet('awmine', 'src/image/AwMine/Awmine.png',
             { frameWidth: 1000, frameHeight: 1000 });
 

@@ -15,8 +15,8 @@ let object37;
 let object38;
 let object39;
 let object40;
-let object41;
-let object42;
+let object69;
+let object70;
 let narm31;
 let narm32;
 let narm33;
@@ -50,8 +50,7 @@ class GameScene3 extends Phaser.Scene {
                 { frameWidth: 1024, frameHeight: 1714 });
             this.load.spritesheet('playerJump', 'src/image/jumpnew.png',
                 { frameWidth: 1024, frameHeight: 1049 });
-            this.load.spritesheet('playerJumping', 'src/image/Jumping.png',
-                { frameWidth: 1036, frameHeight: 1049 });
+            
 
         //object
 
@@ -66,8 +65,8 @@ class GameScene3 extends Phaser.Scene {
             this.load.image('object38', 'src/image/object/26.png');
             this.load.image('object39', 'src/image/object/5.png');
             this.load.image('object40', 'src/image/object/28.png');
-            this.load.image('object41', 'src/image/object/40.png');
-            this.load.image('object42', 'src/image/object/28.png');
+            this.load.image('object69', 'src/image/object/40.png');
+            this.load.image('object70', 'src/image/object/28.png');
             this.load.image('goUp', 'src/image/Continue.png');
 
             this.load.image('narm31', 'src/image/narm.png');
@@ -103,13 +102,13 @@ class GameScene3 extends Phaser.Scene {
         .setSize(149, 102)
         .setOffset(226, 248);
 
-        object33 = this.physics.add.image(137,470,'object33')
+        object33 = this.physics.add.image(150,470,'object33')
         .setOrigin(0, 0)
         .setImmovable()
         .setSize(27, 69)
         .setOffset(287, 265);
 
-        object34 = this.physics.add.image(50,302,'object34')
+        object34 = this.physics.add.image(35,302,'object34')
         .setOrigin(0, 0)
         .setImmovable()
         .setSize(199, 47)
@@ -154,13 +153,13 @@ class GameScene3 extends Phaser.Scene {
         .setSize(72, 48)
         .setOffset(156, 36);
 
-        object41 = this.physics.add.image(600,95,'object41')
+        object69 = this.physics.add.image(600,95,'object69')
         .setOrigin(0, 0)
         .setImmovable()
         .setSize(35, 24)
         .setOffset(175, 49);
 
-        object42 = this.physics.add.image(600,20,'object42')
+        object70 = this.physics.add.image(600,20,'object70')
         .setScale(0.5)
         .setOrigin(0, 0)
         .setImmovable()
@@ -244,7 +243,8 @@ class GameScene3 extends Phaser.Scene {
         this.physics.add.collider(object33, this.player);
         this.physics.add.collider(object34, this.player);
         this.physics.add.collider(object35, this.player, ()=>{     
-            this.scene.start('GameScene3');
+            this.player.setX(0);
+            this.player.setY(900);
     }
     );
         this.physics.add.collider(object36, this.player);
@@ -258,12 +258,12 @@ class GameScene3 extends Phaser.Scene {
         this.physics.add.collider(object40, this.player);  
 
 
-        this.physics.add.collider(object41, this.player, ()=>{     
+        this.physics.add.collider(object69, this.player, ()=>{     
             this.scene.start('GameScene4');
       }
       );
 
-      this.physics.add.collider(object42, this.player, ()=>{     
+      this.physics.add.collider(object70, this.player, ()=>{     
         this.player.setX(0);
         this.player.setY(900);
   }
