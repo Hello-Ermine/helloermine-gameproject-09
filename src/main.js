@@ -24,13 +24,13 @@ const config = {
        }
     },
     scene: [
-        TrailerScene,
-        // StartGame,
-        // GameScene,
-        // GameScene2,
-        // GameScene3,
-        // GameScene4,
-        // EndGame
+        // TrailerScene,
+        StartGame,
+        GameScene,
+        GameScene2,
+        GameScene3,
+        GameScene4,
+        EndGame
        
 
         

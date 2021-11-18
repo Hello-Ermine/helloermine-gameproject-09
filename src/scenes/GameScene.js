@@ -23,6 +23,7 @@ let narm2;
 let narm3;
 let narm4;
 
+let soundGame1;
 
 let playerJumpCharge;
 let playerJump;
@@ -61,7 +62,7 @@ class GameScene extends Phaser.Scene {
         this.load.image('narmv2', 'src/image/narmv2.png');
         this.load.image('narmv3', 'src/image/narmv3.png');
 
-        
+        this.load.audio('soundGame1', 'src/sound/ES_We Are Giants STEMS MELODY.mp3');
 
         
     }
@@ -70,6 +71,10 @@ class GameScene extends Phaser.Scene {
 
         //background
         bg = this.add.tileSprite(0, 0, 700, 950, 'bg').setOrigin(0, 0);
+
+        soundGame1 = this.sound.add('soundGame1')
+        .setVolume(0.5);
+        soundGame1.play({loop:true});//ลูปเพลง
 
         //object
         object1 = this.physics.add.image(0, 932, 'object1')
@@ -218,7 +223,8 @@ class GameScene extends Phaser.Scene {
             this.player.setY(900);
         }
         );
-        this.physics.add.collider(object10, this.player,()=>{     
+        this.physics.add.collider(object10, this.player,()=>{   
+            soundGame1.stop();  
             this.scene.start('GameScene2')}
   );
 
