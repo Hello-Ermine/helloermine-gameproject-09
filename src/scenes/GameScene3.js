@@ -227,17 +227,6 @@ class GameScene3 extends Phaser.Scene {
             repeat: -1
         })
 
-        this.anims.create({
-            key: 'playerJumpingAni',
-            frames: this.anims.generateFrameNumbers('playerJumping', {
-                start: 0,
-                end: 1
-            }),
-            duration: 500,
-            repeat: -1
-        })
-
-
 
         this.player.setCollideWorldBounds(true)
 

@@ -197,7 +197,7 @@ class GameScene4 extends Phaser.Scene {
                 end: 4
 
             }),
-            duration: 500,
+            duration: 600,
             repeat: -1
 
 
@@ -232,16 +232,6 @@ class GameScene4 extends Phaser.Scene {
                 end: 0
             }),
             duration: 3500,
-            repeat: -1
-        })
-
-        this.anims.create({
-            key: 'playerJumpingAni',
-            frames: this.anims.generateFrameNumbers('playerJumping', {
-                start: 0,
-                end: 1
-            }),
-            duration: 500,
             repeat: -1
         })
 
@@ -304,8 +294,7 @@ class GameScene4 extends Phaser.Scene {
         );
 
         this.physics.add.overlap(awmine, this.player, () => {
-           // this.scene.start('')
-
+           this.scene.start('EndGame')
         }
         );
 

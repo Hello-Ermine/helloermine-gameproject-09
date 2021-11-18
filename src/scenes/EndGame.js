@@ -2,10 +2,10 @@ import Phaser from "phaser";
 
 let background
      
-class StartGame extends Phaser.Scene {
+class EndGame extends Phaser.Scene {
         constructor(test) {
             super({
-                key: 'StartGame'
+                key: 'EndGame'
             });
         }
     
@@ -15,9 +15,8 @@ class StartGame extends Phaser.Scene {
     
     }
         create() {
-            background = this.add.image(-70, 30, 'endGame')
-            .setScale(0.66)
-            .setOrigin(0,0);
+            background = this.add.image(349, 475, 'endGame')
+            .setScale(1);
             
     
     }
@@ -27,4 +26,4 @@ class StartGame extends Phaser.Scene {
     
     }
 }
-export default StartGame;
+export default EndGame;
