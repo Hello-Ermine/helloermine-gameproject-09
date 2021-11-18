@@ -62,6 +62,8 @@ class GameScene extends Phaser.Scene {
         this.load.image('narmv3', 'src/image/narmv3.png');
 
         
+
+        
     }
 
     create() {
