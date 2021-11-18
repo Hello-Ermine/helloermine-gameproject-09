@@ -20,7 +20,7 @@ let object70;
 let narm31;
 let narm32;
 let narm33;
-
+let soundGame3;
 
 
 
@@ -73,7 +73,8 @@ class GameScene3 extends Phaser.Scene {
             this.load.image('narm32', 'src/image/narm.png');
             this.load.image('narm33', 'src/image/narmv2.png');
             
-    
+             //เพลง
+             this.load.audio('soundGame3', 'src/sound/epic-travel-on-celtic-roads-version-60s-10819.mp3');
 
 
     }
@@ -81,6 +82,11 @@ class GameScene3 extends Phaser.Scene {
     create() {
         bg3 = this.add.tileSprite(0,-1150,1000,2100,'bg3')
         .setOrigin(0,0);
+
+        //เพลง
+        soundGame3 = this.sound.add('soundGame3')
+        .setVolume(0.5);
+        soundGame3.play({loop:true});//ลูปเพลง
 
         //object
         object1 = this.physics.add.image(0, 932, 'object1')
@@ -259,6 +265,7 @@ class GameScene3 extends Phaser.Scene {
 
 
         this.physics.add.collider(object69, this.player, ()=>{     
+            soundGame3.stop();
             this.scene.start('GameScene4');
       }
       );

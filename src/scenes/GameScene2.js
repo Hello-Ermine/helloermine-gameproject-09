@@ -22,6 +22,8 @@ let object20;
 let object21;
 let object22;
 
+
+let soundGame2;
 let narm1;
 let narm2;
 let narm3;
@@ -68,6 +70,9 @@ class GameScene2 extends Phaser.Scene {
             this.load.image('narm1', 'src/image/narm.png');
             this.load.image('narmv22', 'src/image/narmv2.png');
             this.load.image('narmv23', 'src/image/narmv3.png');
+
+            //เพลง
+            this.load.audio('soundGame2', 'src/sound/kingdom-of-fantasy-version-60s-10817.mp3');
         }
     
         create() {
@@ -75,6 +80,11 @@ class GameScene2 extends Phaser.Scene {
             //background
             bg2 = this.add.tileSprite(0, 0, 700, 950, 'bg2').setOrigin(0, 0);
     
+            //เพลง
+            soundGame2 = this.sound.add('soundGame2')
+            .setVolume(0.3);
+            soundGame2.play({loop:true});//ลูปเพลง
+
             //object
             object1 = this.physics.add.image(0, 932, 'object1')
             .setOrigin(0, 0)
@@ -277,6 +287,7 @@ class GameScene2 extends Phaser.Scene {
         );
             this.physics.add.collider(object21, this.player);
             this.physics.add.collider(object22, this.player,()=>{     
+                soundGame2.stop();
                 this.scene.start('GameScene3')}
         );       
         
