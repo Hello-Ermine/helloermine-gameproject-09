@@ -202,7 +202,8 @@ class GameScene extends Phaser.Scene {
         this.physics.add.collider(object4, this.player);
         this.physics.add.collider(object5, this.player);
         this.physics.add.collider(object6, this.player, ()=>{     
-                this.scene.start('GameScene');
+            this.player.setX(0);
+            this.player.setY(900);
         }
         );
         this.physics.add.collider(object7, this.player);
@@ -211,7 +212,8 @@ class GameScene extends Phaser.Scene {
         this.physics.add.collider(object9, this.player);
         
         this.physics.add.collider(object11, this.player,  ()=>{     
-                  this.scene.start('GameScene');
+            this.player.setX(0);
+            this.player.setY(900);
         }
         );
         this.physics.add.collider(object10, this.player,()=>{     
