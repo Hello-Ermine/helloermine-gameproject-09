@@ -26,6 +26,8 @@ let starEvent;
 let playerJumpCharge;
 let playerJump;
 
+let soundGame4;
+
 let awmine;
 
 
@@ -69,7 +71,8 @@ class GameScene4 extends Phaser.Scene {
         this.load.image('narm41', 'src/image/narmv2.png');
         this.load.image('star', 'src/image/star.png');
 
-
+         //เพลง
+         this.load.audio('soundGame4', 'src/sound/the-power-of-a-heroic-epic-story-60s-10810 (1).mp3');
 
     }
 
@@ -78,7 +81,10 @@ class GameScene4 extends Phaser.Scene {
             .setOrigin(0, 0)
             .setDepth(0.5);
 
-
+        //เพลง
+        soundGame4 = this.sound.add('soundGame4')
+        .setVolume(0.5);
+        soundGame4.play({loop:true});//ลูปเพลง
 
         //player
         this.player = this.physics.add.sprite(255, 900, 'player'); // 255 900
@@ -293,6 +299,7 @@ class GameScene4 extends Phaser.Scene {
         );
 
         this.physics.add.overlap(awmine, this.player, () => {
+            soundGame4.stop()
            this.scene.start('EndGame')
         }
         );
