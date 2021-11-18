@@ -25,9 +25,6 @@ let narm4;
 
 let soundGame1;
 
-let playerJumpCharge;
-let playerJump;
-
 
 class GameScene extends Phaser.Scene {
     constructor(test) {
