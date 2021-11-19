@@ -6,6 +6,7 @@ import GameScene3 from './scenes/GameScene3';
 import GameScene4 from './scenes/GameScene4';
 import StartGame from './scenes/StartGame';
 import EndGame from './scenes/EndGame';
+import TutorialScene from './scenes/TutorialScene';
 
 
 
@@ -25,6 +26,7 @@ const config = {
     },
     scene: [
         StartGame,
+        TutorialScene,
         GameScene,
         GameScene2,
         GameScene3,

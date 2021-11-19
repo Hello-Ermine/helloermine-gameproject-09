@@ -6,6 +6,7 @@ let ninja;
 let jump3;
 let snowBackground;
 let soundStart;
+let howtoPlay;
      
 class StartGame extends Phaser.Scene {
         constructor(test) {
@@ -20,6 +21,7 @@ class StartGame extends Phaser.Scene {
             this.load.image('ninja', 'src/image/backgroundNinja.png');
             this.load.image('jump3', 'src/image/jump3.png');
             this.load.image('snowBackground', 'src/image/snowBackground.jpg');
+            this.load.image('howtoplay','src/image/HowToPlay.png');
     }
         create() {
             
@@ -48,6 +50,16 @@ class StartGame extends Phaser.Scene {
             playButton.on('pointerdown',()=>{
                 this.scene.start('GameScene')
             })
+
+            howtoPlay = this.add.image(430,850,'howtoplay')
+            .setScale(0.9)
+            .setDepth(10);
+
+            howtoPlay.setInteractive();
+            howtoPlay.on('pointerdown',()=>{
+                this.scene.start('TutorialScene')
+            })
+
     
     }
         update(delta, time) {
